@@ -1,3 +1,4 @@
+
 const bitmap = new Bitmap(60, 50);
 const toolbar = document.getElementById("toolbar");
 const palette = document.getElementById("palette");

@@ -1,3 +1,6 @@
+let clientupdates = [];
+let selected = [];
+
 function Bitmap(width, height) {
     this.grid = [];
     for(var row = 0; row < height; row++) {
@@ -28,9 +31,14 @@ Bitmap.prototype.render = function(target_element) {
     }
 };
 
-Bitmap.prototype.setColor = function(row, col, color) {
+Bitmap.prototype.setColor = function(row, col, color, remote) {
     this.grid[row][col] = color;
     this.cells[row][col].style.background = color;
+    // Added below to push to clientupdates
+    selected = [row, col, color]
+    if (!remote) {
+    clientupdates.push(selected);
+    };
 }
 
 Bitmap.prototype.handleEvent = function(event) {
